@@ -8,7 +8,8 @@ databaseChangeLog:
             columns: # объявления колонок
               - column:
                   name: id
-                  type: INT
+                  type: int
+                  autoIncrement: true
                   constraints:
                     primaryKey: true
                     nullable: false
@@ -17,3 +18,4 @@ databaseChangeLog:
                   type: varchar(64)
                   constraints:
                     nullable: false
+                    unique: true

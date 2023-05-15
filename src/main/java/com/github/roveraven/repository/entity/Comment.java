@@ -16,8 +16,9 @@ public class Comment {
     @Column(name = "parent_id")
     private Integer parentId;       TODO
      */
-    @JoinColumn (name = "user")
-    @ManyToOne
+    //@JoinColumn (name = "user")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
     private User user;
     @Column(name = "comment_time")
     private ZonedDateTime commentTime;

@@ -8,13 +8,14 @@ databaseChangeLog:
             columns: # объявления колонок
               - column:
                   name: comment_id
-                  type: INT
+                  type: int
+                  autoIncrement: true
                   constraints:
                     primaryKey: true
                     nullable: false
               - column:
                   name: user_id
-                  type: INT
+                  type: int
                   constraints:
                     nullable: false
                     referencedTableName: users
@@ -27,6 +28,7 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: text
-                  type: TEXT
+                  type: text
                   constraints:
                     nullable: false
+

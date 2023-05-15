@@ -2,8 +2,8 @@ package com.github.roveraven.repository.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.ToString;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Data
@@ -12,10 +12,10 @@ import java.util.List;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id")
+    @Column(name = "id")
     private Integer id;
     @Column(name = "name")
-    private String userName;
+    private String name;
     /*
     @Enumerated(EnumType.STRING)
     @Column(name = "role")
@@ -25,7 +25,10 @@ public class User {
     @Column(name = "avatar")
     private Image avatar;       TODO
      */
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user",
+    fetch = FetchType.EAGER)
+    //@JoinColumn(name = "id")
     @Column(name = "comments")
+    @ToString.Exclude
     private List<Comment> comments;
 }
