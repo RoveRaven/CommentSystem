@@ -12,15 +12,20 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "comment_id")
     private Integer id;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @Column(name = "comment_time")
+    private ZonedDateTime commentTime;
+
+    @Column(name = "text")
+    private String text;
     /*
     @Column(name = "parent_id")
     private Integer parentId;       TODO
+    private Image image;            TODO
      */
-    @JoinColumn (name = "user")
-    @ManyToOne
-    private User user;
-    @Column(name = "comment_time")
-    private ZonedDateTime commentTime;
-    @Column(name = "text")
-    private String text;
+
 }

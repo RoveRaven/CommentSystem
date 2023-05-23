@@ -1,14 +1,15 @@
 databaseChangeLog:
   - changeSet:
-      id: create-users #текстовый идентификатор (Обязателен)
-      author: RoveRaven # автор (Обязателен)
+      id: create-users
+      author: RoveRaven
       changes:
-        - createTable: # создаем новую таблицу
+        - createTable:
             tableName: users
-            columns: # объявления колонок
+            columns:
               - column:
                   name: id
-                  type: INT
+                  type: int
+                  autoIncrement: true
                   constraints:
                     primaryKey: true
                     nullable: false
@@ -17,3 +18,4 @@ databaseChangeLog:
                   type: varchar(64)
                   constraints:
                     nullable: false
+                    unique: true
