@@ -14,8 +14,16 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
+
     @Column(name = "name")
     private String name;
+
+    @OneToMany(mappedBy = "user",
+    fetch = FetchType.EAGER)
+    @Column(name = "comments")
+    @ToString.Exclude
+    private List<Comment> comments;
+
     /*
     @Enumerated(EnumType.STRING)
     @Column(name = "role")
@@ -24,11 +32,6 @@ public class User {
     private LocalDate registrationDate;     TODO
     @Column(name = "avatar")
     private Image avatar;       TODO
+    private boolean isBanned;    TODO
      */
-    @OneToMany(mappedBy = "user",
-    fetch = FetchType.EAGER)
-    //@JoinColumn(name = "id")
-    @Column(name = "comments")
-    @ToString.Exclude
-    private List<Comment> comments;
 }

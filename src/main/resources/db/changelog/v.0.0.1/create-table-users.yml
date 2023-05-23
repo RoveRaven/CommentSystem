@@ -1,11 +1,11 @@
 databaseChangeLog:
   - changeSet:
-      id: create-users #текстовый идентификатор (Обязателен)
-      author: RoveRaven # автор (Обязателен)
+      id: create-users
+      author: RoveRaven
       changes:
-        - createTable: # создаем новую таблицу
+        - createTable:
             tableName: users
-            columns: # объявления колонок
+            columns:
               - column:
                   name: id
                   type: int

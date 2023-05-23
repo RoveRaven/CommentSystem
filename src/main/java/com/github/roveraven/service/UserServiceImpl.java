@@ -22,7 +22,6 @@ public class UserServiceImpl implements UserService{
         return userFromDB.map(value -> userRepository.save(value)).orElseGet(() -> userRepository.save(user));
     }
 
-
     @Override
     public User save(String userName) {
         return null;

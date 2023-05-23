@@ -1,29 +1,34 @@
 package com.github.roveraven.service;
 
 import com.github.roveraven.repository.CommentRepository;
-import com.github.roveraven.repository.UserRepository;
 import com.github.roveraven.repository.entity.Comment;
+import com.github.roveraven.repository.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class CommentServiceImpl implements CommentService{
-
     private final CommentRepository commentRepository;
-    private final UserRepository userRepository;
+    private final UserService userService;
 
     @Autowired
-    public CommentServiceImpl(CommentRepository commentRepository, UserRepository userRepository) {
+    public CommentServiceImpl(CommentRepository commentRepository, UserService userService)
+    {
         this.commentRepository = commentRepository;
-        this.userRepository = userRepository;
+        this.userService = userService;
     }
+
     @Override
-    public Comment save(Comment comment) {
-        if(comment.getUser().getId()==null)
-            userRepository.save(comment.getUser());
+    public Comment save(Comment comment)
+    {
+         User savedUser = userService.save(comment.getUser());
+         comment.setCommentTime(ZonedDateTime.now(ZoneId.systemDefault()));
+         comment.setUser(savedUser);
         return commentRepository.save(comment);
     }
 
