@@ -38,7 +38,7 @@ public class CommentServiceImpl implements CommentService{
     }
 
     @Override
-    public List<Comment> findByUser(Integer userId) {
+    public List<Comment> findByUser(Long userId) {
         return null;
     }
 

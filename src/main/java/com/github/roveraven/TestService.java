@@ -1,6 +1,8 @@
 package com.github.roveraven;
 
+import com.github.roveraven.repository.RoleRepository;
 import com.github.roveraven.repository.entity.Comment;
+import com.github.roveraven.repository.entity.Role;
 import com.github.roveraven.repository.entity.User;
 import com.github.roveraven.service.CommentService;
 import com.github.roveraven.service.UserService;
@@ -10,17 +12,23 @@ import org.springframework.stereotype.Component;
 @Component
 public class TestService {
     UserService userService;
+    RoleRepository roleRepository;
     CommentService commentService;
     @Autowired
-    public TestService(UserService userService, CommentService commentService) {
+    public TestService(UserService userService, CommentService commentService, RoleRepository roleRepository) {
         this.userService = userService;
         this.commentService = commentService;
+        this.roleRepository = roleRepository;
         System.out.println("Hello, ServiceTest!");
         testMethod();
     }
     public void testMethod(){
+        Role role = new Role();
+        role.setId(1L);
+        role.setName("ROLE_USER");
+        roleRepository.save(role);
         User user = new User();
-        user.setName("TestUser19");
+        user.setUsername("TestUser19");
         //User user2 = userService.save(user);
         Comment comment = new Comment();
         comment.setText("""

@@ -25,13 +25,13 @@
                             <form:label path="text" ></form:label> <form:textarea type="text" path="text" placeholder="Your Message" rows="10" cols="100" style="resize:none"/>
                             <br>
                             <br>
-                            <form:label path="user.name"></form:label> <form:input type="text" path="user.name" placeholder="Your Name" style= "font-size: 20px; width: 30%"/>
+                            <form:label path="user.username"></form:label> <form:input type="text" path="user.username" placeholder="Your Name" style= "font-size: 20px; width: 30%"/>
                             <input type="submit" value="Send Message" style="width: 15%; height: 5%; font-size: 20px; margin-left: 5%"/>
                         </form:form>
 
                 <c:forEach items="${comments}" var="comment">
                         <hr>
-                        <p style="margin-bottom: -5px; margin-left: 8%"><span style="font-size: 20px"><b>${comment.user.name}</b></span>   <span style="font-size: 12px; color: blue"><fmtzdt:formatDate value="${comment.commentTime}" pattern="dd/MM/yyyy HH:mm" /></span></p>
+                        <p style="margin-bottom: -5px; margin-left: 8%"><span style="font-size: 20px"><b>${comment.user.username}</b></span>   <span style="font-size: 12px; color: blue"><fmtzdt:formatDate value="${comment.commentTime}" pattern="dd/MM/yyyy HH:mm" /></span></p>
                         <p style = "word-wrap: break-word; width: 65%; margin-left: 8%; text-align: justify">${comment.text}</p>
               <!--      <button style="margin-left: 8%; width: 60px">Reply</button>        -->
                         <br>

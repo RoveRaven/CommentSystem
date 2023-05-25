@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-table-roles
+      author: RoveRaven
+      changes:
+        - createTable:
+            tableName: roles_table
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: varchar(20)
+                  constraints:
+                    unique: true

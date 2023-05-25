@@ -17,7 +17,7 @@ public class TestController {
                 for(Comment c : commentService.findAll()){
                     builder.append(c+"<br>\n");
                 }
-        System.out.println(builder);
+        //System.out.println(builder);
         return builder.toString();
     }
 }

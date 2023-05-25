@@ -1,0 +1,28 @@
+databaseChangeLog:
+  - changeSet:
+      id: change-users-roles
+      author: RoveRaven
+      changes:
+        - renameColumn:
+            tableName: users
+            oldColumnName: name
+            newColumnName: user_name
+        - modifyDataType:
+            tableName: users
+            columnName: id
+            newDataType: bigint
+        - addColumn:
+            tableName: users
+            columns:
+              - column:
+                  name: password
+                  type: varchar(128)
+        - modifyDataType:
+            tableName: comments
+            columnName: comment_id
+            newDataType: bigint
+        - modifyDataType:
+            tableName: comments
+            columnName: user_id
+            newDataType: bigint
+

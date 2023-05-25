@@ -46,4 +46,8 @@ public class CommentController {
         redirectAttributes.addFlashAttribute("addCommentSuccess", true);
         return redirectView;
     }
+    @GetMapping("/test")
+    public String testpage(Model model) {
+        return "test";
+    }
 }
