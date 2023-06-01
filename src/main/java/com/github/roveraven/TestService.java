@@ -20,13 +20,13 @@ public class TestService {
         this.commentService = commentService;
         this.roleRepository = roleRepository;
         System.out.println("Hello, ServiceTest!");
-        testMethod();
+        //testMethod();
     }
     public void testMethod(){
         Role role = new Role();
         role.setId(1L);
         role.setName("ROLE_USER");
-        roleRepository.save(role);
+        //roleRepository.save(role);
         User user = new User();
         user.setUsername("TestUser19");
         //User user2 = userService.save(user);
@@ -39,7 +39,7 @@ right - выравнивает текст по правому краю.
 center - выравнивает текст по центру.
 justify - выравнивает текст по ширине, в таком тексте оба конца строки размещаются вплотную к внутренним краям элемента. Пробелы между словами в этом случае корректируются браузером так, что бы длина всех строк была строго одинаковая.""");
         comment.setUser(user);
-        commentService.save(comment);
+        //commentService.save(comment);
     }
 
 }

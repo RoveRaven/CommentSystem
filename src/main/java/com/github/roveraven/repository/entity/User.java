@@ -2,6 +2,7 @@ package com.github.roveraven.repository.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
@@ -34,6 +35,8 @@ public class User implements UserDetails {
     @JoinTable(name = "users_roles", joinColumns =
     @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     @Fetch(FetchMode.SUBSELECT)
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private Set<Role> roles;
 
     @OneToMany(mappedBy = "user",
@@ -41,6 +44,7 @@ public class User implements UserDetails {
     @Column(name = "comments")
     @Fetch(FetchMode.SUBSELECT)
     @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private List<Comment> comments;
 
     @Override

@@ -1,6 +1,5 @@
 package com.github.roveraven;
 
-import com.github.roveraven.repository.CommentRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

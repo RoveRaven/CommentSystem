@@ -14,7 +14,6 @@ public class Comment {
     private Integer id;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    //@JoinColumn(name = "user_id")
     private User user;
 
     @Column(name = "comment_time")

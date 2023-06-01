@@ -14,11 +14,8 @@ import java.util.stream.Collectors;
 @Controller
 @RequestMapping("/")
 public class CommentController {
-    private final CommentService commentService;
     @Autowired
-    public CommentController(CommentService commentService) {
-        this.commentService = commentService;
-    }
+    private CommentService commentService;
 
     @GetMapping("/")
     public String addCommentView(Model model)
