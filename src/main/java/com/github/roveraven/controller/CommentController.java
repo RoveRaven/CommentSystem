@@ -14,11 +14,8 @@ import java.util.stream.Collectors;
 @Controller
 @RequestMapping("/")
 public class CommentController {
-    private final CommentService commentService;
     @Autowired
-    public CommentController(CommentService commentService) {
-        this.commentService = commentService;
-    }
+    private CommentService commentService;
 
     @GetMapping("/")
     public String addCommentView(Model model)
@@ -45,5 +42,9 @@ public class CommentController {
         redirectAttributes.addFlashAttribute("savedComment", savedComment);
         redirectAttributes.addFlashAttribute("addCommentSuccess", true);
         return redirectView;
+    }
+    @GetMapping("/test")
+    public String testpage(Model model) {
+        return "test";
     }
 }

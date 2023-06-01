@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.Temporal;
 
+//<!--https://stackoverflow.com/questions/28516766/using-java-time-localdate-with-jstl-fmtformatdate-action-->
+
 public class FormatDateTag extends TagSupport {
     protected Temporal value;
     protected String pattern;

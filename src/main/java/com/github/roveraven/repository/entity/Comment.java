@@ -14,14 +14,13 @@ public class Comment {
     private Integer id;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id")
     private User user;
 
     @Column(name = "comment_time")
     private ZonedDateTime commentTime;
 
     @Column(name = "text")
-    private String text;
+    private String text;              //TODO
     /*
     @Column(name = "parent_id")
     private Integer parentId;       TODO

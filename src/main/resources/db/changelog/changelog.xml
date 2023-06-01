@@ -5,4 +5,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
         <include file="v.0.0.1/create-table-users.yml" relativeToChangelogFile="true"/>
         <include file="v.0.0.1/create-table-comments.yml" relativeToChangelogFile="true"/>
+        <include file="v.0.1.0/change-users-roles.yml" relativeToChangelogFile="true"/>
+        <include file="v.0.1.0/create-table-roles.yml" relativeToChangelogFile="true"/>
+        <include file="v.0.1.0/create-table-users-roles.yml" relativeToChangelogFile="true"/>
         </databaseChangeLog>
