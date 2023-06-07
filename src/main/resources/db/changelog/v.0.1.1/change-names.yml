@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: change-names
+      author: RoveRaven
+      changes:
+        - renameColumn:
+            tableName: comments
+            oldColumnName: comment_id
+            newColumnName: id
+        - renameColumn:
+            tableName: comments
+            oldColumnName: comment_time
+            newColumnName: time
+        - renameTable:
+            oldTableName: roles_table
+            newTableName: roles
+ 

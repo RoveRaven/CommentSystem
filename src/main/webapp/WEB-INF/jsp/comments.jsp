@@ -25,8 +25,8 @@
                     <form:label path="text" ></form:label> <form:textarea type="text" path="text" placeholder="Your Message" rows="10" cols="100" style="resize:none" autofocus="true"/>
                     <br>
                     <br>
-                    <form:label path="user.username"></form:label> <form:input type="text" path="user.username" placeholder="Your Name" style= "font-size: 20px; width: 30%"/>
-                    <input type="submit" value="Send Message" style="width: 15%; height: 5%; font-size: 20px; margin-left: 5%"/>
+                <!--<form:label path="user.username"></form:label> <form:input type="text" path="user.username" placeholder="Your Name" style= "font-size: 20px; width: 30%"/> -->
+                    <input type="submit" value="Send Message" style="width: 15%; height: 5%; font-size: 20px"/>
                 </form:form>
 
                 <c:forEach items="${comments}" var="comment">

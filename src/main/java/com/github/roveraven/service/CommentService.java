@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface CommentService {
     Comment save(Comment comment);
-    Optional<Comment> findComment(Integer CommentId);
+    Optional<Comment> findComment(Long CommentId);
     List<Comment> findByUser(Long userId);
     List<Comment> findAll();
 

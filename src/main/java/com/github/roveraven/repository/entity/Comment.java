@@ -3,28 +3,41 @@ package com.github.roveraven.repository.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.awt.Image;
+import java.sql.Blob;
+import java.sql.Types;
 import java.time.ZonedDateTime;
+import java.util.Set;
+
+import org.hibernate.annotations.JdbcTypeCode;
 @Data
 @Entity
 @Table(name = "comments")
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "comment_id")
-    private Integer id;
+    @Column(name = "id")
+    private Long id;
+    @JoinColumn(name="parent_id")
+    @ManyToOne
+    private Comment parentComment;
+    @OneToMany(mappedBy = "parentComment")
+    private Set<Comment> subComments;
+    @Column(name="level")
+    private Integer level;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
-    @Column(name = "comment_time")
+    @Column(name = "time")
     private ZonedDateTime commentTime;
 
     @Column(name = "text")
-    private String text;              //TODO
-    /*
-    @Column(name = "parent_id")
-    private Integer parentId;       TODO
-    private Image image;            TODO
-     */
+    private String text;  
+    
+    @JdbcTypeCode(Types.BINARY)
+    @Column(name="image")
+    private Blob image;           
+     
 
 }

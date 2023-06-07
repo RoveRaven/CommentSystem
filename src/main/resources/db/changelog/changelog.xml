@@ -8,4 +8,8 @@
         <include file="v.0.1.0/change-users-roles.yml" relativeToChangelogFile="true"/>
         <include file="v.0.1.0/create-table-roles.yml" relativeToChangelogFile="true"/>
         <include file="v.0.1.0/create-table-users-roles.yml" relativeToChangelogFile="true"/>
-        </databaseChangeLog>
+        <include file="v.0.1.1/change-names.yml" relativeToChangelogFile="true"/>
+        <include file="v.0.1.1/insert-roles.yml" relativeToChangelogFile="true"/>
+        <include file="v.0.1.1/add-parent-level-image-to-user.yml" relativeToChangelogFile="true"/>
+        
+</databaseChangeLog>

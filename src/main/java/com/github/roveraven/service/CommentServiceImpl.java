@@ -29,17 +29,17 @@ public class CommentServiceImpl implements CommentService{
     @Override
     public Comment save(Comment comment)
     {
-         User savedUser = userService.findByUsername(comment.getUser().getUsername());
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-        User user = userService.findByUsername(userDetails.getUsername());
-         comment.setCommentTime(ZonedDateTime.now(ZoneId.systemDefault()));
-         comment.setUser(user);
+        User userFromDB = userService.findByUsername(userDetails.getUsername());
+        comment.setCommentTime(ZonedDateTime.now(ZoneId.systemDefault()));
+        comment.setUser(userFromDB);
+        comment.setImage(null);
         return commentRepository.save(comment);
     }
 
     @Override
-    public Optional<Comment> findComment(Integer CommentId) {
+    public Optional<Comment> findComment(Long CommentId) {
         return Optional.empty();
     }
 
