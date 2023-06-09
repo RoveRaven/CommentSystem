@@ -18,11 +18,17 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+    
     @JoinColumn(name="parent_id")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Comment parentComment;
-    @OneToMany(mappedBy = "parentComment")
+    
+    @Transient
+    private Long parentId;
+    
+    @OneToMany(mappedBy = "parentComment", fetch = FetchType.LAZY)
     private Set<Comment> subComments;
+    
     @Column(name="level")
     private Integer level;
 

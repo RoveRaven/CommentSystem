@@ -33,6 +33,12 @@ public class CommentServiceImpl implements CommentService{
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         User userFromDB = userService.findByUsername(userDetails.getUsername());
         comment.setCommentTime(ZonedDateTime.now(ZoneId.systemDefault()));
+        comment.setLevel(0);
+        if(comment.getParentId()!=null) 
+        {
+        	comment.setParentComment(commentRepository.findById(comment.getParentId()).get());
+        	comment.setLevel(comment.getParentComment().getLevel()+1);
+        }
         comment.setUser(userFromDB);
         comment.setImage(null);
         return commentRepository.save(comment);

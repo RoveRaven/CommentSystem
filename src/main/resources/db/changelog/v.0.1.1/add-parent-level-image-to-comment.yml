@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: add-parent-level-image-to-user
+      id: add-parent-level-image-to-comment
       author: RoveRaven
       changes:
         - addColumn:
@@ -12,11 +12,10 @@ databaseChangeLog:
                 constraints:
                   nullable: true
                   foreignKeyName: parent_id_fk
-                  references: users(id)
+                  references: comments(id)
             - column:
                 name: level
                 type: int
-                defaultValueNumeric: 0
             - column:
                 name: image
                 type: bytea

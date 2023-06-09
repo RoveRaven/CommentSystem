@@ -37,7 +37,14 @@ public class CommentController {
     @PostMapping("/comments")
     public RedirectView addComment(@ModelAttribute("newcomment") Comment comment, RedirectAttributes redirectAttributes)
     {
-        final RedirectView redirectView = new RedirectView("/comments", true);
+    	final RedirectView redirectView = new RedirectView("/comments", true);
+    	
+    	if(comment.getParentId()!=null && comment.getText()==null) 
+    		{
+    		redirectAttributes.addFlashAttribute("parent", comment.getParentId());
+    		return redirectView;
+    		}
+        
         Comment savedComment = commentService.save(comment);
         redirectAttributes.addFlashAttribute("savedComment", savedComment);
         redirectAttributes.addFlashAttribute("addCommentSuccess", true);
