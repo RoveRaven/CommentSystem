@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+      id: add-parent-level-image-to-comment
+      author: RoveRaven
+      changes:
+        - addColumn:
+            tableName: comments
+            columns:
+            - column:
+                name: parent_id
+                type: int
+                constraints:
+                  nullable: true
+                  foreignKeyName: parent_id_fk
+                  references: comments(id)
+            - column:
+                name: level
+                type: int
+            - column:
+                name: image
+                type: bytea
+                constraints:
+                  nullable: true
+  
+    
+    
+ 
+    
+    

@@ -9,7 +9,7 @@ import org.springframework.security.core.GrantedAuthority;
 import java.util.Set;
 
 
-@Entity(name = "roles_table")
+@Entity(name = "roles")
 @Data
 public class Role implements GrantedAuthority {
 
@@ -20,7 +20,7 @@ public class Role implements GrantedAuthority {
     @Column(name = "name")
     private String name;
 
-    @ManyToMany()
+    @ManyToMany(fetch= FetchType.LAZY)
     @JoinTable(name = "users_roles", joinColumns =
     @JoinColumn(name = "role_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
     @ToString.Exclude
