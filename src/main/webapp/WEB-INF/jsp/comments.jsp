@@ -31,11 +31,12 @@
                 </form:form>
 
                 <c:forEach items="${comments}" var="comment">
+                <div style = "margin-left: ${comment.level}%;">
                 
                 <form:form id="posst" modelAttribute="newcomment">
                 
                         <hr>
-                        <p style="margin-bottom: -5px; margin-left: 8%"><span style="font-size: 20px"><b>${comment.user.username}</b></span>   <span style="font-size: 12px; color: blue"><fmtzdt:formatDate value="${comment.commentTime}" pattern="dd/MM/yyyy HH:mm" /></span></p>
+                        <p style="margin-bottom: -5px; margin-left: 8%"><span style="font-size: 20px"><b>${comment.username}</b></span>   <span style="font-size: 12px; color: blue"><fmtzdt:formatDate value="${comment.time}" pattern="dd/MM/yyyy HH:mm" /></span></p>
                         <p style = "word-wrap: break-word; width: 65%; margin-left: 8%; text-align: justify">${comment.text}</p>
                    <!-- <button style="margin-left: 8%; width: 60px">Reply</button>   -->                   
                    <!--  <input id="Reply" type="button" value="Reply" onclick="setFocus();" style="margin-left: 8%; width: 60px" />   -->                         
@@ -44,6 +45,8 @@
                         <form:input type="hidden" path= "parentId" value="${comment.id}"/>
                         </button>
                         </form:form>
+                        
+                        </div>
                                 
                 </c:forEach>
     </div>

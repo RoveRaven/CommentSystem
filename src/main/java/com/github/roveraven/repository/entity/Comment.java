@@ -7,6 +7,7 @@ import java.awt.Image;
 import java.sql.Blob;
 import java.sql.Types;
 import java.time.ZonedDateTime;
+import java.util.List;
 import java.util.Set;
 
 import org.hibernate.annotations.JdbcTypeCode;
@@ -27,7 +28,8 @@ public class Comment {
     private Long parentId;
     
     @OneToMany(mappedBy = "parentComment", fetch = FetchType.LAZY)
-    private Set<Comment> subComments;
+    private List<Comment> subComments;
+    
     
     @Column(name="level")
     private Integer level;
